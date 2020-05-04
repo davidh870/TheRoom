@@ -102,7 +102,12 @@ function preload(){
     lighterImg = loadImage('images/lighter.png');
     registerImg = loadImage('images/register.png');
     bloodShotImg = loadImage('images/blood.png');
-    winnerImg = loadImage('images/winner.png')
+    winnerImg = loadImage('images/winner.png');
+
+    loadImage('images/title.png', function (img) {
+        glitch = new Glitch(img);
+        isLoaded = true;
+    });
 
     // Preload sounds
     song = loadSound("music/creepy.mp3");
@@ -133,10 +138,7 @@ function setup(){
     playButton = createButton("Play Sound");
     playButton.mousePressed(togglePlaying);
 
-    loadImage('images/title.png', function (img) {
-        glitch = new Glitch(img);
-        isLoaded = true;
-    });
+    
 
 }
 
