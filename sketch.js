@@ -203,12 +203,12 @@ function draw(){
                 carStopSound.stop();
             }
         }
-        
 
+        // Load white room image
+        image(whiteRoomImg, 0, 0, width, height);
+
+        fill(0);
         text(storyText[state], textPosX, textPosY, 800, 800);
-
-        // Load money image
-        image(whiteRoomImg, 300, 20, 200, 200);
 
         // Typed Text
         fill(255, 0, 0);
@@ -571,13 +571,13 @@ function keyTyped(){
                 state++;
             }
         }
-        else if(typed == "red pill" || typed == "take red pill" || typed == "grab red pill" || typed == "choose red pill" ) {
+        else if(typed == "red pill" || typed == "take red pill" || typed == "grab red pill" || typed == "choose red pill" || typed == "red" ) {
             if(state == 1){
                 state++;
             }
             
         }
-        else if(typed == "blue pill" || typed == "take blue pill" || typed == "grab blue pill" || typed == "choose blue pill" ) {
+        else if(typed == "blue pill" || typed == "take blue pill" || typed == "grab blue pill" || typed == "choose blue pill" || typed == "blue" ) {
             if(state == 1){
                 state = 10;
             }
