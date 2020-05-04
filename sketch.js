@@ -655,9 +655,8 @@ function mousePressed(){
             state = 0;
         }
         // Play
-        else if(state = 23){
+        else if(state == 23){
             state = 0;
-            textSize(20); // Reset text size to 20
         }
         
         typed = "";
