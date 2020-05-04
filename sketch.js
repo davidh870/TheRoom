@@ -1,7 +1,6 @@
-
 // Variables ---------------------------------------------
 let font;
-let state = 23;
+let state = 10;
 let typed = "";
 
 let money = false; // Checks if you brought money from the safe
@@ -354,7 +353,7 @@ function draw(){
         // Load gasoline station image
         image(gasolineStationImg, 0, 0, width, height);
 
-        fill(0, 255, 255);
+        fill(255, 255, 0);
         text(storyText[state], textPosX, textPosY, 800, 800);
 
         // Typed Text
