@@ -1,6 +1,6 @@
 // Variables ---------------------------------------------
 let font;
-let state = 10;
+let state = 23; // Inital state is 23 for title screen
 let typed = "";
 
 let money = false; // Checks if you brought money from the safe
