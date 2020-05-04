@@ -104,6 +104,7 @@ function preload(){
     bloodShotImg = loadImage('images/blood.png');
     winnerImg = loadImage('images/winner.png');
 
+    // Glitch Title
     loadImage('images/title.png', function (img) {
         glitch = new Glitch(img);
         isLoaded = true;
@@ -585,7 +586,7 @@ function keyTyped(){
         else if(typed == "open dresser" && state == 4){
             state++;
         }
-        else if(typed == "grab pocket knife" || typed == "take pocket knife" || typed == "take knife" || typed == "grab pocket knife"){
+        else if(typed == "grab pocket knife" || typed == "take pocket knife" || typed == "take knife" || typed == "grab knife"){
             if(state == 5){
                 state++;
             }
@@ -918,7 +919,7 @@ class Glitch {
             if (!this.throughFlag) {
                     push();
                     translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
-                    image(this.imgOrigin, 0, 0);
+                    image(this.imgOrigin, 0, -(windowHeight/3));
                     pop();
                     return;
             }
@@ -953,7 +954,7 @@ class Glitch {
 
             push();
             translate((width - this.imgOrigin.width) / 2, (height - this.imgOrigin.height) / 2);
-            image(this.imgOrigin, 0, 0);
+            image(this.imgOrigin, 0, -(windowHeight/3));
             pop();
 
             // scat image
