@@ -1,7 +1,7 @@
 
 // Variables ---------------------------------------------
 let font;
-let state = 23;
+let state = 10;
 let typed = "";
 
 let money = false; // Checks if you brought money from the safe
@@ -96,7 +96,7 @@ function preload(){
     gunImg = loadImage('images/gun.png');
     moneyImg = loadImage('images/money.png');
     safeImg = loadImage('images/safe.png');
-    gasolineStationImg = loadImage('images/gasolineStation.jpg');
+    gasolineStationImg = loadImage('images/gasolineStationV2.jpg');
     lotteryTicketImg = loadImage('images/lotteryTicket.png');
     cigarImg = loadImage('images/cigar.png');
     lighterImg = loadImage('images/lighter.png');
@@ -234,7 +234,6 @@ function draw(){
         image(tvImg, 280, 0, 250, 250);
     }
     else if(state == 3){
-        text(storyText[state], textPosX, textPosY, 800, 800);
 
         // Sound Controls 
         if(soundOn == true){
@@ -247,7 +246,9 @@ function draw(){
         }
 
         // Load room door image
-        image(roomDoorImg, 300, 10, 200, 200);
+        image(roomDoorImg, 0, 0, width, height);
+
+        text(storyText[state], textPosX, textPosY, 800, 800);
 
         // Typed Text
         fill(255, 0, 0);
@@ -336,8 +337,6 @@ function draw(){
         text(hyperlinks[13], textPosX, windowHeight - 400, 800, 800);
     }
     else if(state == 10){
-        text(storyText[state], textPosX, textPosY, 800, 800);
-
         // Sound Controls 
         if(soundOn == true){
             if(!carStopSound.isPlaying()){
@@ -352,8 +351,11 @@ function draw(){
             carStopSound.pause();
         }
 
-        // Load dresser image
-        image(gasolineStationImg, 250, 10, 300, 200);
+        // Load gasoline station image
+        image(gasolineStationImg, 0, 0, width, height);
+
+        fill(0, 255, 255);
+        text(storyText[state], textPosX, textPosY, 800, 800);
 
         // Typed Text
         fill(255, 0, 0);
