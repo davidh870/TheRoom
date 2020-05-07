@@ -30,6 +30,7 @@ let lighterImg;
 let registerImg;
 let bloodShotImg;
 let winnerImg;
+let pepeMatrixImg;
 
 // Sound Variables
 let playButton;
@@ -73,7 +74,7 @@ let storyText = [/*0*/'You are in a white room. There is nothing but a table acr
 ]
 
 // Action hyperlinks
-let hyperlinks = ['watch tv', 'open safe', '"Am I crazy?"', '"Lets do this"', 'lottery tickets', 'cigarettes', 'lighters', 'the cash register', 'go back', '"yeah money"', '"no thanks"', 'take a nap', 'turn around back to the cashier', 'start over', 'play'];
+let hyperlinks = ['watch tv', 'open safe', '"Am I crazy?"', '"Lets do this"', 'lottery tickets', 'cigarettes', 'lighters', 'the cash register', 'go back', '"yeah money"', '"no thanks"', 'take a nap', 'turn around back to the cashier', 'start over', 'play', '????????'];
 
 
 function preload(){
@@ -102,6 +103,7 @@ function preload(){
     registerImg = loadImage('images/register.png');
     bloodShotImg = loadImage('images/blood.png');
     winnerImg = loadImage('images/winner.png');
+    pepeMatrixImg = loadImage('images/pepe.gif');
 
     // Glitch Title
     loadImage('images/title.png', function (img) {
@@ -118,6 +120,8 @@ function preload(){
     gunCockSound = loadSound("music/gunCock.mp3");
     gunShotSound = loadSound("music/gunShot.mp3");
     winSound = loadSound("music/winSound.mp3");
+
+    
 }  
 
 function setup(){
@@ -132,14 +136,9 @@ function setup(){
     textPosY = height/4;
     fill(255);
 
-    
-
     // Play / Pause Button
     playButton = createButton("Play Sound");
     playButton.mousePressed(togglePlaying);
-
-    
-
 }
 
 
@@ -474,6 +473,7 @@ function draw(){
         fill(255, 0, 0); // Red Text for action
         // start over
         text(hyperlinks[13], textPosX, windowHeight - 400, 800, 800);
+        text(hyperlinks[15], textPosX, windowHeight - 360, 800, 800);
     }
     else if (state == 20){
         text(storyText[state], textPosX, textPosY, 800, 800);
@@ -540,6 +540,10 @@ function draw(){
         // Go back
         text(hyperlinks[8], textPosX, windowHeight - 400, 800, 800);
     }
+    else if(state == 24){
+        // Load pepe matrix image
+        image(pepeMatrixImg, 0, 0, width, height);
+    }
     else{
         text(storyText[state], textPosX, textPosY, 800, 800);
     }
@@ -558,12 +562,12 @@ function keyPressed(){
 
 function keyTyped(){
     if(keyCode == RETURN){
-        if(typed == "walk to table" || typed == "go to table"){
+        if(typed == "walk to table" || typed == "go to table" || typed == "walk to the table" || typed == "go to the table"){
             if(state == 0){
                 state++;
             }
         }
-        else if(typed == "walk to room" || typed == "go to room"){
+        else if(typed == "walk to room" || typed == "go to room" || typed == "walk to the room" || typed == "go to the room"){
             if(state == 3){
                 // Pause state 3 sound
                 if(babyDriverSound.isPlaying()){
@@ -572,39 +576,39 @@ function keyTyped(){
                 state++;
             }
         }
-        else if(typed == "red pill" || typed == "take red pill" || typed == "grab red pill" || typed == "choose red pill" || typed == "red" ) {
+        else if(typed == "red pill" || typed == "take red pill" || typed == "grab red pill" || typed == "choose red pill" || typed == "red" || typed == "take the red pill" || typed == "grab the red pill" || typed == "choose the red pill") {
             if(state == 1){
                 state++;
             }
             
         }
-        else if(typed == "blue pill" || typed == "take blue pill" || typed == "grab blue pill" || typed == "choose blue pill" || typed == "blue" ) {
+        else if(typed == "blue pill" || typed == "take blue pill" || typed == "grab blue pill" || typed == "choose blue pill" || typed == "blue" || typed == "take the blue pill" || typed == "grab the blue pill" || typed == "choose the blue pill") {
             if(state == 1){
                 state = 10;
             }
             
         }
-        else if(typed == "open dresser" && state == 4){
+        else if((typed == "open dresser" && state == 4) || (typed == "open the dresser" && state == 4)){
             state++;
         }
-        else if(typed == "grab pocket knife" || typed == "take pocket knife" || typed == "take knife" || typed == "grab knife"){
+        else if(typed == "grab pocket knife" || typed == "take pocket knife" || typed == "take knife" || typed == "grab knife" || typed == "grab pocket the knife" || typed == "take the pocket knife" || typed == "take the knife" || typed == "grab the knife"){
             if(state == 5){
                 state++;
             }
             
         }
-        else if (typed == "grab gun" || typed == "take gun"){
+        else if (typed == "grab gun" || typed == "take gun" || typed == "grab the gun" || typed == "take the gun"){
             console.log("TEST");
             if(state == 7){
                 state++;
             }
             
         }
-        else if (typed == "grab money" || typed == "take money"){
+        else if (typed == "grab money" || typed == "take money" || typed == "grab the money" || typed == "take the money"){
             state = 22;
             money = true;
         }
-        else if (typed == "open door" && state == 10){
+        else if ((typed == "open door" && state == 10) || (typed == "open the door" && state == 10)){
             state++;
             playOnce = false;
         }
@@ -690,6 +694,10 @@ function mousePressed(){
             else{
                 state = 18;
             }
+        }
+        // ?????
+        else if(state == 19){
+            state = 24;
         }
         typed = "";
     }
